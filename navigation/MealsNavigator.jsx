@@ -7,6 +7,7 @@ import MealCategoryScreen from "../screens/MealCategoryScreen";
 import MealDetailsScreen from "../screens/MealDetailsScreen";
 
 import Colors from "../constants/Colors";
+import { HeaderButton, Item } from "react-navigation-header-buttons";
 
 const MealsNavigator = (props) => {
   const Stack = createStackNavigator();
@@ -34,7 +35,14 @@ const MealsNavigator = (props) => {
         <Stack.Screen
           name="Meal Details"
           component={MealDetailsScreen}
-          options={({ route }) => ({ title: route.params.productTitle })}
+          options={({ route }) => ({
+            title: route.params.mealTitle,
+            headerRight: (
+              <HeaderButton>
+                <Item title="Favorite" iconName="ios-star" onPress={() => {}} />
+              </HeaderButton>
+            ),
+          })}
         />
       </Stack.Navigator>
     </NavigationContainer>
