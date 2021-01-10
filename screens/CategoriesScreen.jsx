@@ -22,6 +22,7 @@ const CategoriesScreen = (props) => {
         onSelect={() => {
           props.navigation.navigate("Meal Category", {
             categoryID: itemData.item.id,
+            productTitle: itemData.item.title,
           });
         }}
       />
